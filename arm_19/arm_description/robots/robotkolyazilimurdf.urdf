@@ -1,0 +1,464 @@
+<robot
+  name="arm_description">
+   <link name="world"/>
+
+ <joint name="grouding" type="fixed">
+   <parent link="world"/>
+   <child link="base_link"/>
+   <origin
+     xyz="0 0 0.1"
+     rpy="3.14 0 0" />
+ </joint>
+ <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0081055 -0.00017223 -0.0060369"
+        rpy="0 0 0" />
+      <mass
+        value="0.8797" />
+      <inertia
+        ixx="0.00012142"
+        ixy="1.9318E-06"
+        ixz="-1.5581E-21"
+        iyy="3.0734E-08"
+        iyz="9.793E-20"
+        izz="0.00012145" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="1_eksen_L">
+    <inertial>
+      <origin
+        xyz="0 0.064054 -0.0017789"
+        rpy="0 0 0" />
+      <mass
+        value="1.4155" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/1_eksen_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/1_eksen_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="1_eksen_j"
+    type="revolute">
+    <origin
+      xyz="0.037739 0.0060369 -0.022125"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="1_eksen_L" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="2_eksen_L">
+    <inertial>
+      <origin
+        xyz="-0.0065699 0.24989 -0.016947"
+        rpy="0 0 0" />
+      <mass
+        value="1.2949" />
+      <inertia
+        ixx="0.029466"
+        ixy="0.0010685"
+        ixz="-4.8277E-06"
+        iyy="5.4374E-05"
+        iyz="0.00022096"
+        izz="0.029513" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/2_eksen_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.49804 0.49804 0.49804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/2_eksen_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="2_eksen_j"
+    type="revolute">
+    <origin
+      xyz="0 0.093 0"
+      rpy="-8.6736E-17 8.6736E-17 -1.5708" />
+    <parent
+      link="1_eksen_L" />
+    <child
+      link="2_eksen_L" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="3_eksen_L">
+    <inertial>
+      <origin
+        xyz="0.26713 0.067464 0.026885"
+        rpy="0 0 0" />
+      <mass
+        value="2.6432" />
+      <inertia
+        ixx="0.0033569"
+        ixy="-0.01011"
+        ixz="-0.0018729"
+        iyy="0.076559"
+        iyz="-0.00052912"
+        izz="0.076401" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/3_eksen_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/3_eksen_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="3_eksen_j"
+    type="revolute">
+    <origin
+      xyz="-0.039 0.41 0"
+      rpy="3.1416 8.6736E-17 -1.5708" />
+    <parent
+      link="2_eksen_L" />
+    <child
+      link="3_eksen_L" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="4_eksen_L">
+    <inertial>
+      <origin
+        xyz="0.0986967829210475 0.00238054464310046 0.0694933443443458"
+        rpy="0 0 0" />
+      <mass
+        value="1.36543112069823" />
+      <inertia
+        ixx="7.01463941383603E-05"
+        ixy="-0.000418870532854604"
+        ixz="0.000395245279166743"
+        iyy="0.0134159253297998"
+        iyz="2.32375364561403E-05"
+        izz="0.0133775702426983" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/4_eksen_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/4_eksen_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="4_eksen_j"
+    type="revolute">
+    <origin
+      xyz="0.4165 0.065 0.021552"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="3_eksen_L" />
+    <child
+      link="4_eksen_L" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="5_eksen_L">
+    <inertial>
+      <origin
+        xyz="-0.0071526308972033 -0.0447443865886979 0.0980581919064059"
+        rpy="0 0 0" />
+      <mass
+        value="2.05411358806035" />
+      <inertia
+        ixx="0.00175076084420297"
+        ixy="-0.000226248997253378"
+        ixz="0.000334857890439837"
+        iyy="0.0024081674432031"
+        iyz="0.000845591620627312"
+        izz="0.00278233047460811" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/5_eksen_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/5_eksen_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="5_eksen_j"
+    type="revolute">
+    <origin
+      xyz="0.226 -0.007 0.0455"
+      rpy="-1.5708 0 3.1416" />
+    <parent
+      link="4_eksen_L" />
+    <child
+      link="5_eksen_L" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="6_eksen_L">
+    <inertial>
+      <origin
+        xyz="-3.26405569239796E-14 8.32667268468867E-17 0.0481583763255272"
+        rpy="0 0 0" />
+      <mass
+        value="0.299295530441066" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/6_eksen_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/6_eksen_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="6_eksen_j"
+    type="revolute">
+    <origin
+      xyz="0 -0.072 0.088"
+      rpy="1.5708 0.36629 4.0556E-28" />
+    <parent
+      link="5_eksen_L" />
+    <child
+      link="6_eksen_L" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+<transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="2_eksen_j">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+<transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="1_eksen_j">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+<transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="3_eksen_j">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+<transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="4_eksen_j">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+<transmission name="tran5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="5_eksen_j">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+<transmission name="tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="6_eksen_j">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    </plugin>
+  </gazebo>
+</robot>

@@ -1,0 +1,63 @@
+# Publish all joint states -----------------------------------
+joint_state_controller:
+   type: joint_state_controller/JointStateController
+   publish_rate: 50  
+  
+# Position Controllers ---------------------------------------
+1_eksen_j_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: 1_eksen_j
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+2_eksen_j_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: 2_eksen_j
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+3_eksen_j_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: 3_eksen_j
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+4_eksen_j_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: 4_eksen_j
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+5_eksen_j_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: 5_eksen_j
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+6_eksen_j_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: 6_eksen_j
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+rover_arm_controller:
+  type: "effort_controllers/JointTrajectoryController"
+  joints:
+    - 1_eksen_j
+    - 2_eksen_j
+    - 3_eksen_j
+    - 4_eksen_j
+    - 5_eksen_j
+    - 6_eksen_j
+  gains: 
+    1_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    2_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    3_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    4_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    5_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    6_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+  constraints:
+    1_eksen_j:
+      goal: 0.1
+    2_eksen_j:
+      goal: 0.1
+    3_eksen_j:
+      goal: 0.1
+    4_eksen_j:
+      goal: 0.1
+    5_eksen_j:
+      goal: 0.1
+    6_eksen_j:
+      goal: 0.1
+  goal_time: 100
+
+
