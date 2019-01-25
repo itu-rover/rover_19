@@ -1,0 +1,9 @@
+controller_list:
+  - name: fake_arm_19_controller
+    joints:
+      - 1_eksen_j
+      - 2_eksen_j
+      - 3_eksen_j
+      - 4_eksen_j
+      - 5_eksen_j
+      - 6_eksen_j

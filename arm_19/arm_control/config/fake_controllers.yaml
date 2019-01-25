@@ -1,0 +1,34 @@
+rate: 10 
+controller_list:
+  - name: fake_arm_19_controller
+    type: interpolate | via points | last point
+    joints:
+      - 1_eksen_j
+      - 2_eksen_j
+      - 3_eksen_j
+      - 4_eksen_j
+      - 5_eksen_j
+      - 6_eksen_j
+
+gains: # Required because we're controlling an effort interface
+    1_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    2_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    3_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    4_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    5_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    6_eksen_j: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+
+constraints:
+    1_eksen_j:
+      goal: 0.1
+    2_eksen_j:
+      goal: 0.1
+    3_eksen_j:
+      goal: 0.1
+    4_eksen_j:
+      goal: 0.1
+    5_eksen_j:
+      goal: 0.1
+    6_eksen_j:
+      goal: 0.1
+    goal_time: 100
