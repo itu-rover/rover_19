@@ -12,6 +12,9 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   moveit_core
   moveit_ros_planning_interface
+  message_generation
+  sensor_msgs
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -48,11 +51,11 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
+ add_message_files(
+   FILES
+   Joint_msgs.msg
 #   Message2.msg
-# )
+ )
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -69,10 +72,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+ generate_messages(
+   DEPENDENCIES
+ #  std_msgs  # Or other packages containing msgs
+ )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -137,7 +140,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/rover_source_node.cpp)
 add_executable(rover_arm_joystick_control src/rover_arm_joystick_control.cpp) 
-
+add_dependencies(rover_arm_joystick_control rover_source/msg_generate_messages_cpp)
 add_dependencies(rover_arm_joystick_control ${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(rover_arm_joystick_control
@@ -145,7 +148,7 @@ target_link_libraries(rover_arm_joystick_control
  )
 
 add_executable(linear_actuator src/linear_actuator.cpp) 
-
+add_dependencies(linear_actuator rover_source/msg_generate_messages_cpp)
 target_link_libraries(linear_actuator
    ${catkin_LIBRARIES} ${Boost_LIBRARIES}
  )
@@ -212,3 +215,4 @@ target_link_libraries(linear_actuator
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
