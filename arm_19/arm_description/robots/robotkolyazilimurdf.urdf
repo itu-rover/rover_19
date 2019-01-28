@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <robot
   name="arm_description">
    <link name="world"/>
@@ -50,7 +51,7 @@
     </collision>
   </link>
   <link
-    name="1_eksen_L">
+    name="eksen1_link">
     <inertial>
       <origin
         xyz="0 0.064054 -0.0017789"
@@ -90,7 +91,7 @@
     </collision>
   </link>
   <joint
-    name="1_eksen_j"
+    name="eksen1_joint"
     type="revolute">
     <origin
       xyz="0.037739 0.0060369 -0.022125"
@@ -98,17 +99,17 @@
     <parent
       link="base_link" />
     <child
-      link="1_eksen_L" />
+      link="eksen1_link" />
     <axis
       xyz="0 -1 0" />
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="20" />
   </joint>
   <link
-    name="2_eksen_L">
+    name="eksen2_link">
     <inertial>
       <origin
         xyz="-0.0065699 0.24989 -0.016947"
@@ -148,25 +149,25 @@
     </collision>
   </link>
   <joint
-    name="2_eksen_j"
+    name="eksen2_joint"
     type="revolute">
     <origin
       xyz="0 0.093 0"
       rpy="-8.6736E-17 8.6736E-17 -1.5708" />
     <parent
-      link="1_eksen_L" />
+      link="eksen1_link" />
     <child
-      link="2_eksen_L" />
+      link="eksen2_link" />
     <axis
       xyz="0 0 -1" />
     <limit
       lower="-1.57"
       upper="1.57"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="20" />
   </joint>
   <link
-    name="3_eksen_L">
+    name="eksen3_link">
     <inertial>
       <origin
         xyz="0.26713 0.067464 0.026885"
@@ -206,25 +207,25 @@
     </collision>
   </link>
   <joint
-    name="3_eksen_j"
+    name="eksen3_joint"
     type="revolute">
     <origin
       xyz="-0.039 0.41 0"
       rpy="3.1416 8.6736E-17 -1.5708" />
     <parent
-      link="2_eksen_L" />
+      link="eksen2_link" />
     <child
-      link="3_eksen_L" />
+      link="eksen3_link" />
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-1.57"
+      lower="0"
       upper="1.57"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="20" />
   </joint>
   <link
-    name="4_eksen_L">
+    name="eksen4_link">
     <inertial>
       <origin
         xyz="0.0986967829210475 0.00238054464310046 0.0694933443443458"
@@ -264,25 +265,25 @@
     </collision>
   </link>
   <joint
-    name="4_eksen_j"
+    name="eksen4_joint"
     type="revolute">
     <origin
       xyz="0.4165 0.065 0.021552"
       rpy="1.5708 0 1.5708" />
     <parent
-      link="3_eksen_L" />
+      link="eksen3_link" />
     <child
-      link="4_eksen_L" />
+      link="eksen4_link" />
     <axis
       xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="20" />
   </joint>
   <link
-    name="5_eksen_L">
+    name="eksen5_link">
     <inertial>
       <origin
         xyz="-0.0071526308972033 -0.0447443865886979 0.0980581919064059"
@@ -322,25 +323,25 @@
     </collision>
   </link>
   <joint
-    name="5_eksen_j"
+    name="eksen5_joint"
     type="revolute">
     <origin
       xyz="0.226 -0.007 0.0455"
       rpy="-1.5708 0 3.1416" />
     <parent
-      link="4_eksen_L" />
+      link="eksen4_link" />
     <child
-      link="5_eksen_L" />
+      link="eksen5_link" />
     <axis
       xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="20" />
   </joint>
   <link
-    name="6_eksen_L">
+    name="eksen6_link">
     <inertial>
       <origin
         xyz="-3.26405569239796E-14 8.32667268468867E-17 0.0481583763255272"
@@ -380,26 +381,26 @@
     </collision>
   </link>
   <joint
-    name="6_eksen_j"
+    name="eksen6_joint"
     type="revolute">
     <origin
       xyz="0 -0.072 0.088"
       rpy="1.5708 0.36629 4.0556E-28" />
     <parent
-      link="5_eksen_L" />
+      link="eksen5_link" />
     <child
-      link="6_eksen_L" />
+      link="eksen6_link" />
     <axis
       xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="20" />
   </joint>
 <transmission name="tran2">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="2_eksen_j">
+    <joint name="eksen2_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor2">
@@ -409,7 +410,7 @@
   </transmission> 
 <transmission name="tran1">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="1_eksen_j">
+    <joint name="eksen1_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor1">
@@ -419,7 +420,7 @@
   </transmission> 
 <transmission name="tran3">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="3_eksen_j">
+    <joint name="eksen3_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor3">
@@ -429,7 +430,7 @@
   </transmission>
 <transmission name="tran4">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="4_eksen_j">
+    <joint name="eksen4_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor4">
@@ -439,7 +440,7 @@
   </transmission>
 <transmission name="tran5">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="5_eksen_j">
+    <joint name="eksen5_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor5">
@@ -449,7 +450,7 @@
   </transmission>
 <transmission name="tran6">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="6_eksen_j">
+    <joint name="eksen6_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor6">

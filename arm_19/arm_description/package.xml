@@ -7,7 +7,7 @@
 for arm_description robot</p>
   </description>
   <author>me</author>
-  <maintainer email="mee@email.com" />
+  <maintainer email="me@email.com" />
   <license>BSD</license>
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roslaunch</build_depend>
