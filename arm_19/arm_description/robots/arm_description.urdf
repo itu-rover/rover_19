@@ -1,70 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot
   name="arm_description">
-   <link name="world"/>
+  <link
+    name="world">
+  </link>
 
- <joint name="grouding" type="fixed">
-   <parent link="world"/>
-   <child link="base_link"/>
-   <origin
-     xyz="0 0 0.1"
-     rpy="3.14 0 0" />
- </joint>
- <link
+  <link
     name="base_link">
     <inertial>
       <origin
-        xyz="0.0081055 -0.00017223 -0.0060369"
+        xyz="0.055 0.028511 -0.07071"
         rpy="0 0 0" />
       <mass
-        value="0.8797" />
+        value="0.22424" />
       <inertia
-        ixx="0.00012142"
-        ixy="1.9318E-06"
-        ixz="-1.5581E-21"
-        iyy="3.0734E-08"
-        iyz="9.793E-20"
-        izz="0.00012145" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://arm_description/meshes/base_link.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.89804 0.91765 0.92941 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://arm_description/meshes/base_link.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <link
-    name="eksen1_link">
-    <inertial>
-      <origin
-        xyz="0 0.064054 -0.0017789"
-        rpy="0 0 0" />
-      <mass
-        value="1.4155" />
-      <inertia
-        ixx="0"
-        ixy="0"
+        ixx="1"
+        ixy="1"
         ixz="0"
-        iyy="0"
+        iyy="1"
         iyz="0"
-        izz="0" />
+        izz="1" />
     </inertial>
     <visual>
       <origin
@@ -72,7 +27,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://arm_description/meshes/1_eksen_L.STL" />
+          filename="package://arm_description/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -86,43 +41,99 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://arm_description/meshes/1_eksen_L.STL" />
+          filename="package://arm_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="joint_dummy"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="world" />
+    <child
+      link="base_link" />
+  </joint>
+  
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="0 -0.0739919805157646 0.00271975586057593"
+        rpy="0 0 0" />
+      <mass
+        value="0.182986637355482" />
+      <inertia
+        ixx="1"
+        ixy="0"
+        ixz="0"
+        iyy="1"
+        iyz="0"
+        izz="1" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/link1.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="eksen1_joint"
+    name="joint1"
     type="revolute">
     <origin
-      xyz="0.037739 0.0060369 -0.022125"
-      rpy="-1.5708 0 0" />
+      xyz="0.055 0.105 0.058"
+      rpy="-1.5708 -6.123E-17 -1.5708" />
     <parent
       link="base_link" />
     <child
-      link="eksen1_link" />
-    <axis
-      xyz="0 -1 0" />
+      link="link1" />
+     <axis
+      xyz="0 1 0" />
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="10"
+      effort="100"
       velocity="20" />
+      <dynamics
+        damping = "5"
+        friction = "5"/>
   </joint>
   <link
-    name="eksen2_link">
+    name="link2">
     <inertial>
       <origin
-        xyz="-0.0065699 0.24989 -0.016947"
+        xyz="9.33241508168856E-05 0.00299946771656848 0.259411152659096"
         rpy="0 0 0" />
       <mass
-        value="1.2949" />
+        value="0.15891412192705" />
       <inertia
-        ixx="0.029466"
-        ixy="0.0010685"
-        ixz="-4.8277E-06"
-        iyy="5.4374E-05"
-        iyz="0.00022096"
-        izz="0.029513" />
+        ixx="1"
+        ixy="0"
+        ixz="0"
+        iyy="1"
+        iyz="0"
+        izz="1" />
     </inertial>
     <visual>
       <origin
@@ -130,12 +141,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://arm_description/meshes/2_eksen_L.STL" />
+          filename="package://arm_description/meshes/link2.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.49804 0.49804 0.49804 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -144,43 +155,43 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://arm_description/meshes/2_eksen_L.STL" />
+          filename="package://arm_description/meshes/link2.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="eksen2_joint"
+    name="joint2"
     type="revolute">
     <origin
-      xyz="0 0.093 0"
-      rpy="-8.6736E-17 8.6736E-17 -1.5708" />
+      xyz="0 -0.0975 0.0005"
+      rpy="0.79351 1.5708 0" />
     <parent
-      link="eksen1_link" />
+      link="link1" />
     <child
-      link="eksen2_link" />
-    <axis
-      xyz="0 0 -1" />
+      link="link2" />
+     <axis
+      xyz="1 0 0" />
     <limit
-      lower="-1.57"
-      upper="1.57"
-      effort="10"
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
       velocity="20" />
   </joint>
   <link
-    name="eksen3_link">
+    name="link3">
     <inertial>
       <origin
-        xyz="0.26713 0.067464 0.026885"
+        xyz="-0.000140175541839031 0.00170047101330162 0.234927029132246"
         rpy="0 0 0" />
       <mass
-        value="2.6432" />
+        value="0.12508309667554" />
       <inertia
-        ixx="0.0033569"
-        ixy="-0.01011"
-        ixz="-0.0018729"
-        iyy="0.076559"
-        iyz="-0.00052912"
-        izz="0.076401" />
+        ixx="1"
+        ixy="0"
+        ixz="0"
+        iyy="1"
+        iyz="0"
+        izz="1" />
     </inertial>
     <visual>
       <origin
@@ -188,12 +199,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://arm_description/meshes/3_eksen_L.STL" />
+          filename="package://arm_description/meshes/link3.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -202,43 +213,101 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://arm_description/meshes/3_eksen_L.STL" />
+          filename="package://arm_description/meshes/link3.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="eksen3_joint"
+    name="joint3"
     type="revolute">
     <origin
-      xyz="-0.039 0.41 0"
-      rpy="3.1416 8.6736E-17 -1.5708" />
+      xyz="0.0245 0.0495 0.5419"
+      rpy="0.83549 0 3.1416" />
     <parent
-      link="eksen2_link" />
+      link="link2" />
     <child
-      link="eksen3_link" />
-    <axis
+      link="link3" />
+     <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="20" />
+  </joint>
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="-0.00777696008671636 0.0133698565418885 0.0217435569521924"
+        rpy="0 0 0" />
+      <mass
+        value="0.156151945009422" />
+      <inertia
+        ixx="1"
+        ixy="0"
+        ixz="0"
+        iyy="1"
+        iyz="0"
+        izz="1" />
+	</inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_description/meshes/link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="0.0545 0.0355 0.503"
+      rpy="1.5708 -6.9389E-18 1.5708" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+     <axis
       xyz="0 0 1" />
     <limit
-      lower="0"
-      upper="1.57"
-      effort="10"
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
       velocity="20" />
   </joint>
   <link
-    name="eksen4_link">
+    name="link5">
     <inertial>
       <origin
-        xyz="0.0986967829210475 0.00238054464310046 0.0694933443443458"
+        xyz="0.00423182736021133 0.00932384755029578 0.0219997086154421"
         rpy="0 0 0" />
       <mass
-        value="1.36543112069823" />
+        value="0.153675066385186" />
       <inertia
-        ixx="7.01463941383603E-05"
-        ixy="-0.000418870532854604"
-        ixz="0.000395245279166743"
-        iyy="0.0134159253297998"
-        iyz="2.32375364561403E-05"
-        izz="0.0133775702426983" />
+        ixx="1"
+        ixy="0"
+        ixz="0"
+        iyy="1"
+        iyz="0"
+        izz="1" />
     </inertial>
     <visual>
       <origin
@@ -246,12 +315,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://arm_description/meshes/4_eksen_L.STL" />
+          filename="package://arm_description/meshes/link5.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -260,101 +329,43 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://arm_description/meshes/4_eksen_L.STL" />
+          filename="package://arm_description/meshes/link5.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="eksen4_joint"
+    name="joint5"
     type="revolute">
     <origin
-      xyz="0.4165 0.065 0.021552"
-      rpy="1.5708 0 1.5708" />
+      xyz="-0.07 0.035 0.044"
+      rpy="1.5708 0 -1.5708" />
     <parent
-      link="eksen3_link" />
+      link="link4" />
     <child
-      link="eksen4_link" />
-    <axis
-      xyz="0 0 -1" />
+      link="link5" />
+     <axis
+      xyz="0 0 1" />
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="10"
+      effort="100"
       velocity="20" />
   </joint>
   <link
-    name="eksen5_link">
+    name="link6">
     <inertial>
       <origin
-        xyz="-0.0071526308972033 -0.0447443865886979 0.0980581919064059"
-        rpy="0 0 0" />
-      <mass
-        value="2.05411358806035" />
-      <inertia
-        ixx="0.00175076084420297"
-        ixy="-0.000226248997253378"
-        ixz="0.000334857890439837"
-        iyy="0.0024081674432031"
-        iyz="0.000845591620627312"
-        izz="0.00278233047460811" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://arm_description/meshes/5_eksen_L.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://arm_description/meshes/5_eksen_L.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="eksen5_joint"
-    type="revolute">
-    <origin
-      xyz="0.226 -0.007 0.0455"
-      rpy="-1.5708 0 3.1416" />
-    <parent
-      link="eksen4_link" />
-    <child
-      link="eksen5_link" />
-    <axis
-      xyz="0 0 -1" />
-    <limit
-      lower="-3.14"
-      upper="3.14"
-      effort="10"
-      velocity="20" />
-  </joint>
-  <link
-    name="eksen6_link">
-    <inertial>
-      <origin
-        xyz="-3.26405569239796E-14 8.32667268468867E-17 0.0481583763255272"
+        xyz="2.77555756156289E-17 1.11022302462516E-16 0.0181583763254755"
         rpy="0 0 0" />
       <mass
         value="0.299295530441066" />
       <inertia
-        ixx="0"
+        ixx="1"
         ixy="0"
         ixz="0"
-        iyy="0"
+        iyy="1"
         iyz="0"
-        izz="0" />
+        izz="1" />
     </inertial>
     <visual>
       <origin
@@ -362,7 +373,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://arm_description/meshes/6_eksen_L.STL" />
+          filename="package://arm_description/meshes/link6.STL" />
       </geometry>
       <material
         name="">
@@ -376,31 +387,41 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://arm_description/meshes/6_eksen_L.STL" />
+          filename="package://arm_description/meshes/link6.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="eksen6_joint"
+    name="joint6"
     type="revolute">
     <origin
-      xyz="0 -0.072 0.088"
-      rpy="1.5708 0.36629 4.0556E-28" />
+      xyz="-0.041 0.031 0.045"
+      rpy="-1.5708 0 1.5708" />
     <parent
-      link="eksen5_link" />
+      link="link5" />
     <child
-      link="eksen6_link" />
-    <axis
-      xyz="0 0 -1" />
+      link="link6" />
+     <axis
+      xyz="0 0 1" />
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="10"
+      effort="100"
       velocity="20" />
   </joint>
+<transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>   
 <transmission name="tran2">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="eksen2_joint">
+    <joint name="joint2">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor2">
@@ -408,19 +429,9 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission> 
-<transmission name="tran1">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="eksen1_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor1">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission> 
 <transmission name="tran3">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="eksen3_joint">
+    <joint name="joint3">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor3">
@@ -430,7 +441,7 @@
   </transmission>
 <transmission name="tran4">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="eksen4_joint">
+    <joint name="joint4">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor4">
@@ -440,7 +451,7 @@
   </transmission>
 <transmission name="tran5">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="eksen5_joint">
+    <joint name="joint5">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor5">
@@ -450,7 +461,7 @@
   </transmission>
 <transmission name="tran6">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="eksen6_joint">
+    <joint name="joint6">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor6">

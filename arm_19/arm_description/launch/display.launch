@@ -6,7 +6,7 @@
     default="False" />
   <param
     name="robot_description"
-    textfile="$(find arm_description)/robots/robotkolyazilimurdf.urdf" />
+    textfile="$(find arm_description)/robots/arm_description.urdf" />
   <param
     name="use_gui"
     value="$(arg gui)" />
@@ -22,5 +22,5 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find arm_moveit_config)/moveit.rviz" />
+    args="-d $(find arm_description)/urdf.rviz" />
 </launch>

@@ -6,56 +6,56 @@ joint_state_controller:
 # Position Controllers ---------------------------------------
 rover_arm_eksen1_joint_position_controller:
     type: effort_controllers/JointPositionController
-    joint: eksen1_joint
+    joint: joint1
     pid: {p: 100.0, i: 0.01, d: 10.0}
 rover_arm_eksen2_joint_position_controller:
     type: effort_controllers/JointPositionController
-    joint: eksen2_joint
+    joint: joint2
     pid: {p: 100.0, i: 0.01, d: 10.0}
 rover_arm_eksen3_joint_position_controller:
     type: effort_controllers/JointPositionController
-    joint: eksen3_joint
+    joint: joint3
     pid: {p: 100.0, i: 0.01, d: 10.0}
 rover_arm_eksen4_joint_position_controller:
     type: effort_controllers/JointPositionController
-    joint: eksen4_joint
+    joint: joint4
     pid: {p: 100.0, i: 0.01, d: 10.0}
 rover_arm_eksen5_joint_position_controller:
     type: effort_controllers/JointPositionController
-    joint: eksen5_joint
+    joint: joint5
     pid: {p: 100.0, i: 0.01, d: 10.0}
 rover_arm_eksen6_joint_position_controller:
     type: effort_controllers/JointPositionController
-    joint: eksen6_joint
+    joint: joint6
     pid: {p: 100.0, i: 0.01, d: 10.0}
 
 rover_arm_controller:
   type: "effort_controllers/JointTrajectoryController"
   joints:
-    - eksen1_joint
-    - eksen2_joint
-    - eksen3_joint
-    - eksen4_joint
-    - eksen5_joint
-    - eksen6_joint
+    - joint1
+    - joint2
+    - joint3
+    - joint4
+    - joint5
+    - joint6
   gains: 
-    eksen1_joint: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
-    eksen2_joint: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
-    eksen3_joint: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
-    eksen4_joint: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
-    eksen5_joint: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
-    eksen6_joint: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    joint1: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    joint2: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    joint3: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    joint4: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    joint5: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
+    joint6: {p: 100,  d: 10, i: 0.01, i_clamp: 1}
   constraints:
-    eksen1_joint:
+    joint1:
       goal: 0.1
-    eksen2_joint:
+    joint2:
       goal: 0.1
-    eksen3_joint:
+    joint3:
       goal: 0.1
-    eksen4_joint:
+    joint4:
       goal: 0.1
-    eksen5_joint:
+    joint5:
       goal: 0.1
-    eksen6_joint:
+    joint6:
       goal: 0.1
   goal_time: 100
