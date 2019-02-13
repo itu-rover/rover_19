@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
-  <param name="robot_description_mobile"
-	 command="$(find xacro)/xacro.py '$(find mobile_base_description)/robots/mobile_base_description.urdf'" />
+  <!--param name="robot_description_mobile"
+	 command="$(find xacro)/xacro.py '$(find mobile_base_description)/robots/mobile_base_description.urdf'" /-->
   <param name="robot_description"
-	 command="$(find xacro)/xacro.py '$(find arm_description)/robots/arm_description.urdf'" />
+	 command="$(find xacro)/xacro.py '$(find arm_description)/robots/arm_description_with_mobile.urdf'" />
   
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="paused" value="true"/>
@@ -13,17 +13,17 @@
     pkg="tf"
     type="static_transform_publisher"
     args="0 0 0 0 0 0 base_link base_footprint 40" />
-  <node
+  <!--node
     name="spawn_model_base"
     pkg="gazebo_ros"
     type="spawn_model"
     args="-file $(find mobile_base_description)/robots/mobile_base_description.urdf -urdf -x 0 -y 0 -z 0.5 -model mobile_base_description"
-    output="screen" />
+    output="screen" /-->
   <node
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find arm_description)/robots/arm_description.urdf -urdf -x -0.05 -y -0.5 -z 0.5 -model arm_description"
+    args="-file $(find arm_description)/robots/arm_description_with_mobile.urdf -urdf -x 0 -y 0 -z 0.5 -model arm_description"
     output="screen" />
   <node
     name="fake_joint_calibration"
@@ -32,9 +32,17 @@
     args="pub /calibrated std_msgs/Bool true" />
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
   </node>
+  <!--node name="joint_state_publisher_mobile" pkg="joint_state_publisher" type="joint_state_publisher" >
+	  <remap from="robot_description" to="robot_description_mobile" />
+	  <remap from="joint_states" to="joint_states_mobile" />
+  </node-->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
       <!--remap from="robot_description" to="different_robot_description" />
       <remap from="joint_states" to="different_joint_states" /-->
     </node>
-  <node pkg="tf" type="static_transform_publisher" name="arm_mobile_glu" args="1 0 0 0 0 0 1 link1_parent link1 100" />
+  <!--node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub_mobile" >
+      <remap from="robot_description" to="robot_description_mobile" />
+      <remap from="joint_states" to="joint_states_mobile"/>
+    </node-->
+  <!--node pkg="tf" type="static_transform_publisher" name="arm_mobile_glu" args="0 0 1 0 0 0 1 /arm_base_link /base_link 100" /-->
 </launch>

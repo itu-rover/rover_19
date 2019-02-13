@@ -6,7 +6,7 @@
   </link-->
 
   <link
-    name="base_link">
+    name="arm_base_link">
     <inertial>
       <origin
         xyz="0.055 0.028511 -0.07071"
@@ -105,7 +105,7 @@
       xyz="0.055 0.105 0.058"
       rpy="-1.5708 -6.123E-17 -1.5708" />
     <parent
-      link="base_link" />
+      link="arm_base_link" />
     <child
       link="link1" />
      <axis
