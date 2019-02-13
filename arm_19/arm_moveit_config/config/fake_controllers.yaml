@@ -1,9 +1,9 @@
 controller_list:
-  - name: fake_arm_19_controller
+  - name: fake_arm_rover_controller
     joints:
-      - 1_eksen_j
-      - 2_eksen_j
-      - 3_eksen_j
-      - 4_eksen_j
-      - 5_eksen_j
-      - 6_eksen_j
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6

@@ -10,12 +10,12 @@ arm_description:
 # Settings for ros_control hardware interface
   hardware_interface:
     joints:
-      - 1_eksen_j
-      - 2_eksen_j
-      - 3_eksen_j
-      - 4_eksen_j
-      - 5_eksen_j
-      - 6_eksen_j
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
     sim_control_mode: 1  # 0: position, 1: velocity
 # Publish all joint states
 # Creates the /joint_states topic necessary in ROS
@@ -23,14 +23,14 @@ arm_description:
     type: joint_state_controller/JointStateController
     publish_rate: 50
   controller_list:
-    - name: arm_19_controller
+    - name: arm_rover_controller
       action_ns: follow_joint_trajectory
       default: True
       type: FollowJointTrajectory
       joints:
-        - 1_eksen_j
-        - 2_eksen_j
-        - 3_eksen_j
-        - 4_eksen_j
-        - 5_eksen_j
-        - 6_eksen_j
+        - joint1
+        - joint2
+        - joint3
+        - joint4
+        - joint5
+        - joint6
