@@ -64,12 +64,12 @@
       <mass
         value="1.5004" />
       <inertia
-        ixx="0.01"
-        ixy="0"
-        ixz="0"
-        iyy="0.01"
-        iyz="0"
-        izz="0.01" />
+        ixx="9.5426E-06"
+        ixy="3.0122E-07"
+        ixz="1.5725E-07"
+        iyy="0.00077209"
+        iyz="3.7664E-07"
+        izz="0.0007733" />
     </inertial>
     <visual>
       <origin
@@ -118,12 +118,12 @@
       <mass
         value="1.5004" />
       <inertia
-        ixx="0.01"
-        ixy="0"
-        ixz="0"
-        iyy="0.01"
-        iyz="0"
-        izz="0.01" />
+        ixx="9.5533E-06"
+        ixy="3.0632E-07"
+        ixz="1.5757E-07"
+        iyy="0.00077207"
+        iyz="3.7952E-07"
+        izz="0.00077329" />
     </inertial>
     <visual>
       <origin
@@ -172,12 +172,12 @@
       <mass
         value="1.5004" />
       <inertia
-        ixx="0.01"
-        ixy="0"
-        ixz="0"
-        iyy="0.01"
-        iyz="0"
-        izz="0.01" />
+        ixx="9.5638E-06"
+        ixy="3.0089E-07"
+        ixz="1.5622E-07"
+        iyy="0.00077205"
+        iyz="3.8333E-07"
+        izz="0.00077327" />
     </inertial>
     <visual>
       <origin
@@ -226,12 +226,12 @@
       <mass
         value="1.5004" />
       <inertia
-        ixx="0.01"
-        ixy="0"
-        ixz="0"
-        iyy="0.01"
-        iyz="0"
-        izz="0.01" />
+        ixx="9.5638E-06"
+        ixy="3.0089E-07"
+        ixz="1.5622E-07"
+        iyy="0.00077205"
+        iyz="3.8333E-07"
+        izz="0.00077327" />
     </inertial>
     <visual>
       <origin
