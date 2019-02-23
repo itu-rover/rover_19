@@ -1,0 +1,4 @@
+roslaunch mobile_base_control control.launch
+roslaunch arm_control arm_19_control_moveit.launch
+roslaunch mobile_base_navigation move_base.launch
+roslaunch arm_moveit_config demo.launch
