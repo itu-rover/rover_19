@@ -2,7 +2,21 @@
 <robot
   name="panel">
   <link
-    name="base_link">
+    name="world">
+  </link>
+  <joint
+    name="world_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.5"
+      rpy="0 0 0" />
+    <parent
+      link="world" />
+    <child
+      link="panel_base_link" />
+  </joint>
+  <link
+    name="panel_base_link">
     <inertial>
       <origin
         xyz="-0.059734 0.0071587 -0.022133"
@@ -88,7 +102,7 @@
       xyz="0.09269 -0.0295 0.1071"
       rpy="1.5708 0 0" />
     <parent
-      link="base_link" />
+      link="panel_base_link" />
     <child
       link="case_cover_link" />
     <axis
@@ -149,7 +163,7 @@
       xyz="-0.06081 -0.0975 -0.0048573"
       rpy="1.5708 0 3.1416" />
     <parent
-      link="base_link" />
+      link="panel_base_link" />
     <child
       link="small_shelf_link" />
     <axis
@@ -210,7 +224,7 @@
       xyz="-0.05981 -0.1075 -0.16286"
       rpy="1.5708 0 0" />
     <parent
-      link="base_link" />
+      link="panel_base_link" />
     <child
       link="large_shelf_link" />
     <axis

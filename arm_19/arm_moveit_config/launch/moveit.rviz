@@ -76,6 +76,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           link1:
             Alpha: 1
             Show Axes: false
@@ -160,6 +165,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           link1:
             Alpha: 1
             Show Axes: false
@@ -200,47 +210,19 @@ Visualization Manager:
       Value: true
       Velocity_Scaling_Factor: 1
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        arm_base_link:
-          Value: true
-        base_footprint:
-          Value: true
-        base_link:
-          Value: true
-        link1:
-          Value: true
-        link2:
-          Value: true
-        link3:
-          Value: true
-        link4:
-          Value: true
-        link5:
-          Value: true
-        link6:
-          Value: true
-        world:
-          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        world:
-          arm_base_link:
-            link1:
-              link2:
-                link3:
-                  link4:
-                    link5:
-                      link6:
-                        {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -271,18 +253,18 @@ Visualization Manager:
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.447586179
-        Y: 0.603826344
-        Z: 1.65402946e-06
+        X: 0.746618152
+        Y: 0.452980101
+        Z: 1.41561077e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.939796388
+      Pitch: 0.764796555
       Target Frame: base_link
       Value: XYOrbit (rviz)
-      Yaw: 1.0417645
+      Yaw: 0.27676487
     Saved: ~
 Window Geometry:
   Displays:

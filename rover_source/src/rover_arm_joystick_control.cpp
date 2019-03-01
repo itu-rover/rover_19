@@ -33,58 +33,60 @@ bool new_message = false;
 
 void joystick_callback(const sensor_msgs::Joy::ConstPtr& msg)
 {
+
     new_message = true;
     joy_msg = *msg;
     std::cout<<"data"<<std::endl;
+
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     ros::init(argc, argv, "rover_arm_joystick_control");
     ros::NodeHandle node_handle;
     ros::AsyncSpinner spinner(2); //do we need these
     spinner.start();
 
-    static const std::string PLANNING_GROUP = "arm_19";
+    static const std::string PLANNING_GROUP = "arm_rover";
 
     moveit::planning_interface::MoveGroupInterface move_group(PLANNING_GROUP);
     moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
 
     ros::Subscriber joy_sub = node_handle.subscribe("/joy",1,joystick_callback);
-    ros::Publisher gripper_command = node_handle.advertise<std_msgs::Int8>("/gripper_command19",50);
+    ros::Publisher gripper_command = node_handle.advertise<std_msgs::Int8>("/gripper_command19",10);
 
     while(ros::ok())
     {
+        std_msgs::Int8 gripper_msg;
+        gripper_msg.data=2;
         ros::spinOnce();
-
-        // GRIPPER
-
-        std_msgs::Int8 msg;
-        msg.data=2;
-
-        if(joy_msg.buttons[2]==1 && joy_msg.buttons[0]==0)      // open gripper
+        if(!new_message)
         {
-            msg.data=1;
+            gripper_command.publish(gripper_msg);
+            continue;
         }
-        else if(joy_msg.buttons[2]==0 && joy_msg.buttons[0]==1) // close gripper
-        {
-            msg.data=0;
-        }
-        else if(joy_msg.buttons[2]==0 && joy_msg.buttons[0]==0) // gripper steady
-        {
-            msg.data=2;
-        }
-
-        gripper_command.publish(msg);
-
-
-        if(!new_message) continue;
         //veriyi anla
         std::vector<geometry_msgs::Pose> waypoints;
         geometry_msgs::Pose current_pose;
         current_pose = move_group.getCurrentPose().pose;
         waypoints.push_back(current_pose);
 
+        // GRIPPER
+
+
+        if(joy_msg.buttons[2]==0 && joy_msg.buttons[0]==0)      // gripper steady
+        {
+            gripper_msg.data=2;
+        }
+        else if(joy_msg.buttons[2]==0 && joy_msg.buttons[0]==1) // close gripper
+        {
+            gripper_msg.data=0;
+        }
+        else if(joy_msg.buttons[2]==1 && joy_msg.buttons[0]==0) // open gripper
+        {
+            gripper_msg.data=1;
+        }
+        gripper_command.publish(gripper_msg);
 
         //  POSITION
 

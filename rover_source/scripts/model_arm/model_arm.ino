@@ -13,6 +13,8 @@ int sensorValue4 = 0;
 int sensor5 = A4;
 int sensorValue5 = 0;
 
+int sensor6 = A5;
+int sensorValue6 = 0;
 
 void setup() {
   pinMode(sensor1, INPUT);
@@ -20,7 +22,8 @@ void setup() {
   pinMode(sensor3, INPUT);
   pinMode(sensor4, INPUT);
   pinMode(sensor5, INPUT);
-    
+  pinMode(sensor6, INPUT);  
+  
   Serial.begin(115200);
 }
 
@@ -32,13 +35,14 @@ void loop() {
   sensorValue2 = analogRead(sensor2);
   sensorValue3 = analogRead(sensor3);
   sensorValue4 = analogRead(sensor4);
-  sensorValue5 = analogRead(sensor5);
+  sensorValue6 = analogRead(sensor5);
 
   sensorValue1 = map(sensorValue1,0,1008,90,-90);
   sensorValue2 = map(sensorValue2,460,675,84,15);
   sensorValue3 = map(sensorValue3,710,920,104,55);
   sensorValue4 = map(sensorValue4,1008,20,-90,180)+15;
   sensorValue5 = map(sensorValue5,870,550,90,0);
+  sensorValue6 = map(sensorValue6,870,550,-135,135);
   
   
   /*Serial.print(processValue(sensorValue1));
@@ -49,10 +53,12 @@ void loop() {
   Serial.print(" ");
   Serial.print(processValue(sensorValue4));
   Serial.print(" ");
-  Serial.println(processValue(sensorValue5));*/
+  Serial.println(processValue(sensorValue5));
+  Serial.print(" ");
+  Serial.println(processValue(sensorValue6));*/
 
-  finalString = "S"+processValue(sensorValue1)+processValue(sensorValue2)+processValue(sensorValue3)+processValue(sensorValue4)+processValue(sensorValue5)+"0000F\r\n";
-  //finalString = "S"+processValue(sensorValue1)+processValue(sensorValue2)+"  " + String(sensorValue3)+"  " +processValue(sensorValue4)+processValue(sensorValue5)+"0000F\r\n";
+  finalString = "S"+processValue(sensorValue1)+processValue(sensorValue2)+processValue(sensorValue3)+processValue(sensorValue4)+processValue(sensorValue5)+processValue(sensorValue6)+"0000F\r\n";
+  //finalString = "S"+processValue(sensorValue1)+processValue(sensorValue2)+"  " + String(sensorValue3)+"  " +processValue(sensorValue4)+processValue(sensorValue5)+processValue(sensorValue6)+"0000F\r\n";
   //Serial.print(finalString);
   Serial.println(finalString);
   delay(40);
