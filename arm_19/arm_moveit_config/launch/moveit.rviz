@@ -71,26 +71,7 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          anchor:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           arm_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          left_back_wheel_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          left_front_wheel_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -125,16 +106,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          right_back_wheel_link:
+          world:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-            Value: true
-          right_front_wheel_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
         Loop Animation: true
         Robot Alpha: 0.5
         Robot Color: 150; 50; 150
@@ -180,26 +155,7 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          anchor:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           arm_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          left_back_wheel_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          left_front_wheel_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -234,16 +190,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          right_back_wheel_link:
+          world:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-            Value: true
-          right_front_wheel_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
         Robot Alpha: 0.5
         Show Robot Collision: false
         Show Robot Visual: true
@@ -254,17 +204,11 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        anchor:
-          Value: true
         arm_base_link:
           Value: true
         base_footprint:
           Value: true
         base_link:
-          Value: true
-        left_back_wheel_link:
-          Value: true
-        left_front_wheel_link:
           Value: true
         link1:
           Value: true
@@ -278,11 +222,7 @@ Visualization Manager:
           Value: true
         link6:
           Value: true
-        odom:
-          Value: true
-        right_back_wheel_link:
-          Value: true
-        right_front_wheel_link:
+        world:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -290,34 +230,22 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        odom:
-          base_link:
-            anchor:
-              arm_base_link:
-                link1:
-                  link2:
-                    link3:
-                      link4:
-                        link5:
-                          link6:
-                            {}
-              left_back_wheel_link:
-                {}
-              left_front_wheel_link:
-                {}
-              right_back_wheel_link:
-                {}
-              right_front_wheel_link:
-                {}
-            base_footprint:
-              {}
+        world:
+          arm_base_link:
+            link1:
+              link2:
+                link3:
+                  link4:
+                    link5:
+                      link6:
+                        {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: arm_base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -336,25 +264,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 6.14088249
+      Distance: 4.18483925
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.334062368
-        Y: 0.92373544
-        Z: 2.23518001e-07
+        X: 0.447586179
+        Y: 0.603826344
+        Z: 1.65402946e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.934796393
+      Pitch: 0.939796388
       Target Frame: base_link
       Value: XYOrbit (rviz)
-      Yaw: 1.04676449
+      Yaw: 1.0417645
     Saved: ~
 Window Geometry:
   Displays:
@@ -372,5 +300,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1855
-  X: 1985
+  X: 65
   Y: 24
