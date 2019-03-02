@@ -6,11 +6,11 @@
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="paused" value="true"/>
   </include>
-  <node
+  <!--node
     name="tf_footprint_base"
     pkg="tf"
     type="static_transform_publisher"
-    args="0 0 0 0 0 0 base_link base_footprint 40" />
+    args="0 0 0 0 0 0 base_link arm_base_link 40" /-->
   <node
     name="spawn_panel"
     pkg="gazebo_ros"
@@ -23,11 +23,11 @@
     type="spawn_model"
     args="-file $(find arm_description)/robots/arm_description.urdf -urdf -z 0.2 -model arm_description"
     output="screen" />
-  <node
+  <!--<node
     name="fake_joint_calibration"
     pkg="rostopic"
     type="rostopic"
-    args="pub /calibrated std_msgs/Bool true" />
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
-  </node>
+    args="pub /calibrated std_msgs/Bool true" />-->
+  <!--node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" 
+  </node>-->
 </launch>

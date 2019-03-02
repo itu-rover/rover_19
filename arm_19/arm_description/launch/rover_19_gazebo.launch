@@ -30,8 +30,8 @@
     pkg="rostopic"
     type="rostopic"
     args="pub /calibrated std_msgs/Bool true" />
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
-  </node>
+  <!--node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+  </node>-->
   <!--node name="joint_state_publisher_mobile" pkg="joint_state_publisher" type="joint_state_publisher"-->
 	  <!--remap from="robot_description" to="robot_description_mobile" /-->
 	  <!--remap from="joint_states" to="joint_states_mobile" /-->

@@ -1,5 +1,4 @@
 <launch>
-
  <!-- joy node -->
   <node respawn="true" pkg="joy"
         type="joy_node" name="joy_node_1" >
@@ -8,6 +7,5 @@
 
   <node pkg="rover_source" type="rover_arm_joystick_control" name="rover_arm_joystick_control" output="screen"/>
 
- <include file="$(find ur10_moveit_config)/launch/demo.launch"/>
 
 </launch>
